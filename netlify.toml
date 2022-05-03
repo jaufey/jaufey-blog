@@ -1,3 +1,6 @@
+[build]
+  publish = "jaufey-blog/public"
+
 [context.production.environment]
   HUGO_VERSION = "0.98.0"
 
