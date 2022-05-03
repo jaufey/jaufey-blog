@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Jaufey&#39;s Blog</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content on Jaufey&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>Jaufey</copyright>
+    <lastBuildDate>Wed, 04 May 2022 00:47:58 +0800</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>第二篇</title>
+      <link>http://localhost:1313/post/%E7%AC%AC%E4%BA%8C/</link>
+      <pubDate>Wed, 04 May 2022 00:47:58 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/%E7%AC%AC%E4%BA%8C/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>我的第一篇文章</title>
+      <link>http://localhost:1313/post/my-first-post/</link>
+      <pubDate>Wed, 04 May 2022 00:44:41 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/my-first-post/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
