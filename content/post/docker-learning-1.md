@@ -15,7 +15,7 @@ categories: ["Docker"]
 - 无论是开发还是部署，Docker 使用起来方便快捷。技多不压身，希望亲身实践现代编程理念。
 - 将来的一段时间内如果还在配置开发流程、安装依赖、调试环境上花费很多时间，是落伍的表现。
 - 对于只限单机开发、单机部署的我来说，适应容器化、云原生时代的第一步就是学习 Docker，Docker 是后面**了解**运维、K8S 的基石。
-- 大多框架、库的文档教程中提供了该项目容器化的实践方法。如果Docker 也可以是加速学习其他东西的一个垫脚石。
+- 大多框架、库的文档教程中提供了该项目容器化的实践方法。Docker 也可以是加速学习其他东西的一个垫脚石。
    - [针对开发的 Node Web APP 的容器化](https://nodejs.org/en/docs/guides/nodejs-docker-webapp/)
    - [Fastapi 的容器化部署](https://fastapi.tiangolo.com/deployment/docker/)
 
