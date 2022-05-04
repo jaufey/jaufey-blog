@@ -1,8 +1,10 @@
 [build]
-  publish = "./public"
+  publish = "public"
+  command = "hugo --gc --minify"
 
 [context.production.environment]
   HUGO_VERSION = "0.98.0"
+  HUGO_BASEURL = "https://jaufey-blog.netlify.app/"
 
 [[headers]]
   for = "/*"
