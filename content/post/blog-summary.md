@@ -1,7 +1,7 @@
 ---
 title: "使用 Hugo"
 date: 2022-05-04T00:44:41+08:00
-draft: true
+draft: false
 tags: ["Blog"]
 ---
 
