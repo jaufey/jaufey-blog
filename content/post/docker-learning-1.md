@@ -66,6 +66,7 @@ categories: ["Docker"]
 
    容器编排指的是**自动化**容器的部署、管理、扩展和联网，所以，容器编排工具（Kubernetes, Swarm, Nomad, and ECS）是容器的管理者，是容器的上层建筑。
 
+2. 
 
 -----
 
