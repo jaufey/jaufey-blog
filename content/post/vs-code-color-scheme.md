@@ -23,9 +23,9 @@ categories: ["工具"]
 
 Telegram desktop 最开始是没有 sidebar 的，你可以在某个频道寻找自己喜欢的皮肤来安装。但是后来多出来个 sidebar 区域。当时的所有皮肤是没有对这个 sidebar 进行适配的，导致原生主题的 sidebar 跟已有皮肤的主界面格格不入。
 
-经过搜索，发现有人跟我遇到同样的问题：[链接🔗](https://github.com/telegramdesktop/tdesktop/issues/7509)，经过他的热心帮助，问题得以解决。
+经过搜索，发现有人跟我遇到同样的问题：[链接🔗](https://github.com/telegramdesktop/tdesktop/issues/7509)，问题在他的热心帮助下得以解决。
 
-经过总结，皮肤包本身是一个压缩文件，把你拿到的皮肤文件后缀改成 zip 然后解压掉，在这个文件里增加一些关于 sidebar 的配置项即可:
+总结：皮肤包本身是一个压缩文件，把你拿到的皮肤包后缀改成 zip 然后在解压出来的文件里增加一些关于 sidebar 的配置项即可，读者可对比这个文件对自己的皮肤进行修改:
 
 [配置文件](/files/japanserenity.tdesktop-theme)
 
