@@ -1,5 +1,5 @@
 ---
-title: "配置 VS code sidebar 的主题色"
+title: "配置 VS Code sidebar 的主题色"
 date: 2022-05-08T22:09:00+08:00
 draft: false
 tags: ["VS Code","Telegram Desktop"]
