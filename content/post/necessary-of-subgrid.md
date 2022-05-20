@@ -27,6 +27,6 @@ grid 确实很强大，可以命名列，可以命名区域，整体看起来是
 
 -----
 
-但是看看兼容性吧，这。 “爷爷快醒醒，subgrid 已经被 93.3% 的浏览器支持了”
+但是看看兼容性吧—— “爷爷快醒醒，subgrid 已经被 93.3% 的浏览器支持了”。（Mozilla 不愧是 Mozilla）
 
 ![subgrid 兼容性](/post-images/subgrid.jpg)
