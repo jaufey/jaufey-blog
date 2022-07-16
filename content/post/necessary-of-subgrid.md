@@ -30,3 +30,7 @@ grid 确实很强大，可以命名列，可以命名区域，整体看起来是
 但是看看兼容性吧—— “爷爷快醒醒，subgrid 已经被 93.3% 的浏览器支持了”。（Mozilla 不愧是 Mozilla）
 
 ![subgrid 兼容性](/post-images/subgrid.jpg)
+
+---
+2022-07-16 补：
+前些日子发现 dragStart 的时候可以设置 setDragImage，一定程度上可以减小一点视觉问题。

@@ -3,7 +3,7 @@ title: "Proxy 及 ES6 箭头函数的问题"
 date: 2022-07-16T02:12:22+08:00
 lastmod: 2022-07-16T02:12:22+08:00
 draft: false
-tags: ["ES6","proxy","对象方法","this", "响应式", "箭头函数"]
+tags: ["ES6","proxy","object method defination","this", "reactive", "arrow function"]
 categories: ["编程"]
 ---
 
@@ -65,10 +65,15 @@ export default class Node{
                    return target[prop];
                 },
                 set(target, prop, val){
-                    target[prop] = val;
-                    if(prop==='x') this.el.style.left = val + 'px';
-                    if(prop==='y') this.el.style.top = val + 'px';
-                    return true;
+                    const which = prop === 'x' ? 'left' : prop === 'y' ? 'top' : '';
+                    if(which){
+                        target[prop] = val;
+                        this.el.style[which] = val + 'px';
+                        return true;
+                    }else{
+                        // assert - incorrect prop, throw error or failed with slience
+                        return false;
+                    }
                 }
             });
     }
@@ -82,7 +87,7 @@ export default class Node{
 
 看起来多此一举，代码并没有减少多少。
 但谁知道呢，有两个原因鼓励我继续探索：  
-1. 想用一下 proxy  
+1. 想用一下 proxy，至少也要浅尝辄止
 2. 这里的例子只是最小复现
 
 ---
@@ -94,7 +99,7 @@ proxy 的 setter 里的 this 指向了 这个 proxy 的 handler，
 我几乎没有用过 bind 去改变 this 的指向，现在该不会要 bind 吧，多么古旧的做法。
 一定是什么出了问题，莫非这是 proxy 的特异（exotic）行为？  
 
-经过两个 console.log 的排查，确认了这个 setter 不是一个箭头函数，而是一个普通的匿名函数。
+经过两个 console.log 的排查，确认了这个 setter **不是一个箭头函数，而是一个普通的匿名函数**。
 改成箭头函数之后，this 就能拿到正确结果了。
 
 
