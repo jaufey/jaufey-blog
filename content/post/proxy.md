@@ -71,7 +71,7 @@ export default class Node{
                         this.el.style[which] = val + 'px';
                         return true;
                     }else{
-                        // assert - incorrect prop, throw error or failed with slience
+                        // assert - incorrect prop, throw error or failed with silence
                         return false;
                     }
                 }
@@ -85,10 +85,10 @@ export default class Node{
 }
 ```
 
-看起来多此一举，代码并没有减少多少。
+看起来多此一举，代码并没有减少多少，甚至看上去更乱了。
 但谁知道呢，有两个原因鼓励我继续探索：  
 1. 想用一下 proxy，至少也要浅尝辄止
-2. 这里的例子只是最小复现
+2. 这里的例子只是最小复现，未来很可能会有 moveXTo,moveYTo,moveXBy,moveYBy 等方法都可以触发此 proxy handler
 
 ---
 
