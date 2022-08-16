@@ -7,7 +7,7 @@ tags: ["Vue","Vue3","framework","legacy"]
 ---
 
 
-原文地址：[https://jaufey.notion.site/Vue-3-48f24aab000244dfb4583c7948221a24](https://www.notion.so/Vue-3-48f24aab000244dfb4583c7948221a24)
+原文地址：[https://jaufey.notion.site/Vue-3-48f24aab000244dfb4583c7948221a24](https://jaufey.notion.site/Vue-3-48f24aab000244dfb4583c7948221a24)
 
 ---
 
