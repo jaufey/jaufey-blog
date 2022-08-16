@@ -1,7 +1,7 @@
 ---
 title: "升级到 Vue 3"
 date: 2022-08-16T22:15:41+08:00
-lastmod: 2022-08-16T22:15:41+08:00
+lastmod: 2022-08-16T23:52:41+08:00
 draft: false
 tags: ["Vue","Vue3","framework","legacy"]
 ---
@@ -61,7 +61,17 @@ tags: ["Vue","Vue3","framework","legacy"]
     - 组件双向绑定变了。Vue 3 弃用 value+input 的组合，默认为 modelValue+update:modelValue，还可多值双向绑定了。（迁移文档中有）
     - 在 router-view 标签内如果添加了(loading)内容，则路由所对应的组件内容将不会被渲染。（迁移文档中无）
     - 注释放到模板内容第一行的话，$el 的值就是错误的（迁移文档中无）
-2. 工具链上的变动
+2. 依赖上的改动
+    1. vuex, vue router 升级，但项目没有用到什么新东西
+    2. 一些普通的运行时依赖：
+        - 如果还能用，没有报错，就没有升级
+        - 对 Vue2 和 Vue3 区分了不同版本的依赖
+           - 如 vue-toastification 则进行了升级
+           - 如 vue-codemirror 报错，其有 Vue3 版本
+             - 配置方式发生改变，API 接口改变。兼容 Vue 2版本的 vue-codemirror 的配置粒度较细，兼容 Vue 3 版本的 vue-codemirror 提供了一个 basic-setup 启动配置，基本满足需求。像原来的 keymap 如今包含在 basic-setup 中了
+             - 引入依赖的方式发生改变。现在需要单独安装需要用到的 codemirror extensions。比如 language package 或 theme，有利于摇树、节省体积。
+             - Vue 3 版本的 vue-codemirror 还待完善，比如 theme 目前只支持一个 one-dark。由此可见虽然 Vue 3 的主生态算是比较完善了，但各依赖对 Vue 3 的适配还在“进行时”，尤其是像 codemirror 这种比较重的东西。
+3. 工具链上的变动
     1. Vue 3 对 webpack 的配置进行了比较好的封装，几乎做到了开箱即用。
     2. 如果有自定义 webpack 配置的需求，则在 vue.config.js 中追加配置即可。
         1. 简单的基础配置
