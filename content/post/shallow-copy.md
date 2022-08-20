@@ -49,7 +49,7 @@ bodys:
 
 当然是存储一份原始数据了，在点击表头第三下的时候就拿出原始数据渲染出来。
 
-```jsx
+```js
 const originalRows = await getRows();  // 保存的初始数据，恢复乱序时使用。
 const sortedRows = [...originalRows];  // 行列排序的操作应用在此变量中，并渲染此变量在页面中。
 ```

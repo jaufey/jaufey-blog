@@ -29,7 +29,7 @@ tags: ["Vue","Vue3","framework","legacy"]
     1. 自由地测试各提供方的 Loader 和 Plugin
     2. 自由地测试 webpack 的新功能
     3. 将来可从工具链角度优化项目性能，使其不再是一团模糊
-    4. 进阶：以 webpack 为抓手，扩展了解不同构建工具：**gulp, babel, parcel, snowpack，esbuild，vite，swc。（**这些名次对我来说很眼熟，但只在初学 HTML 时接触过 parcel，所以不好意思有可能把不同类型的东西并列在了一起 **）**
+    4. 进阶：以 webpack 为抓手，扩展了解不同构建工具：gulp, babel, parcel, snowpack，esbuild，vite，swc。（这些名次对我来说很眼熟，但只在初学 HTML 时接触过 parcel，所以不好意思有可能把不同类型的东西并列在了一起）
 
 ---
 
