@@ -21,6 +21,8 @@ googleAnalytics = "G-RWR67FTBQK"
 
 [taxonomies]
 category = "categories"
+tag = "tags"
+series = "series"
 
 
 
@@ -37,10 +39,10 @@ category = "categories"
 
 
 #[[menu.main]] # config your menu             
-  name = "归档"
-  weight = 5
-  identifier = "archives"
-  url = "/post/"
+ # name = "归档"
+  # weight = 5
+  # identifier = "archives"
+  # url = "/post/"
 
 
 [params]

@@ -6,9 +6,7 @@ tags: ["VS Code","Telegram Desktop"]
 categories: ["工具"]
 ---
 
-最近看黑色主题有点不够舒服，想换成白色， 编辑器的 color scheme 设置很好找。
-但是切来切去都没法把 sidebar 改成白色主题的。
-于是查了一下解决了，具体方法是在 settings.json 里手动加上这么一个配置项：
+最近看黑色主题有点不够舒服，想换成白色。编辑器的 color scheme 设置很好找，但切来切去都无法把 sidebar 改成白色主题。查后解决了，具体方法是在 settings.json 里手动加上这么一个配置项：
 
 ```    
     "workbench.colorCustomizations": {
