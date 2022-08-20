@@ -7,11 +7,11 @@ tags: ["Vue","Vue3","framework","legacy"]
 ---
 
 
-原文地址：[https://jaufey.notion.site/Vue-3-48f24aab000244dfb4583c7948221a24](https://www.notion.so/Vue-3-48f24aab000244dfb4583c7948221a24)
+原文地址：[https://jaufey.notion.site/Vue-3-48f24aab000244dfb4583c7948221a24](https://jaufey.notion.site/Vue-3-48f24aab000244dfb4583c7948221a24)
 
 ---
 
-上周末花了一些时间把手头的一个小项目升到从 Vue 2.6 升级到 Vue 3.2，把 webpack 从 2 点多升到 了 5。本篇文章记录一下过程。
+上周末花了一些时间把手头的一个小项目从 Vue 2.6 升级到 Vue 3.2，把 webpack 从 2 点多升到了 5。本篇文章记录一下过程。
 
 ## 迁移原因
 
