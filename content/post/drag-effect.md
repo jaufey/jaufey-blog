@@ -27,7 +27,7 @@ categories: ["编程"]
 ---
 
 ## 列排序的交互
-<video src="/post-videos/drag-column.mp4" autoplay style="width:50%;margin:0 auto;"></video>
+<video src="/post-videos/drag-column.mp4" autoplay></video>
 
 
 **实现思路**：
@@ -45,4 +45,4 @@ categories: ["编程"]
 
 下面这种场景就完全避开了缺点，彰显了优点：
 
-<video src="/post-videos/drag-dom.mp4" autoplay style="width:75%;margin:0 auto;"></video>
+<video src="/post-videos/drag-dom.mp4" autoplay></video>
