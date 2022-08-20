@@ -61,7 +61,7 @@ series = "series"
   rss = true                      # show rss icon with link
 
   # home page profile
-  avatar = '/avatar.png'     # Gravatar email or image url(e.g. "https://deno.land/logo.svg")
+  avatar = 'https://jaufey-blog.vercel.app/avatar.png'     # Gravatar email or image url(e.g. "https://deno.land/logo.svg")
   name = 'Jaufey'
   bio = 'A doctrine is not judged at all until it is judged in its best form.'
 
