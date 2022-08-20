@@ -7,7 +7,7 @@ tags: ["交互", "drag", "dnd", "drop", "pointer","拖拽","虚拟列表", "表�
 categories: ["编程"]
 ---
 
-前一篇文章提到 ”有空写一篇列排序的文章“，今天就写一下。尽量做到挖一个坑，填一个坑。原生 markdown 样式或许有些问题，原文在这里：  https://jaufey.notion.site/Drag-effect-e9dc0eec82a548e78de7594d1d2f6b0b
+前一篇文章提到“有空写一篇列排序的文章”，今天就写一下。尽量做到挖一个坑，填一个坑。原生 markdown 样式或许有些问题，原文在这里：  https://jaufey.notion.site/Drag-effect-e9dc0eec82a548e78de7594d1d2f6b0b
 
 ## 功能实现
 
