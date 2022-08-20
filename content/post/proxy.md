@@ -1,5 +1,5 @@
 ---
-title: "Proxy 及 ES6 箭头函数的问题"
+title: "当 Proxy 照进现实"
 date: 2022-07-16T02:12:22+08:00
 lastmod: 2022-07-16T02:12:22+08:00
 draft: false

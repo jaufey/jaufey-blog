@@ -21,8 +21,8 @@ googleAnalytics = "G-RWR67FTBQK"
 
 [taxonomies]
 category = "categories"
-tag = "tags"
-series = "series"
+
+
 
 
 
@@ -35,17 +35,8 @@ series = "series"
   filename = "sitemap.xml"
 
 
-[[menu.main]]  # 配置目录
-  name = "分类"
-  weight = 10
-  identifier = "categories"
-  url = "/categories/"
-[[menu.main]]
-  name = "标签"
-  weight = 20
-  identifier = "tags"
-  url = "/tags/"
-[[menu.main]] # config your menu             
+
+#[[menu.main]] # config your menu             
   name = "归档"
   weight = 5
   identifier = "archives"
@@ -122,8 +113,8 @@ series = "series"
 
   # Link custom CSS and JS assets
   #   (relative to /static/css and /static/js respectively)
-  customCSS = []
-  customJS = []
+  # customCSS = ["/css/re.css"]
+  # customJS = []
 
   uglyURLs = false          # please keep same with uglyurls setting
 
@@ -155,42 +146,9 @@ series = "series"
     clientId = ""           # Your client ID
     clientSecret = ""       # Your client secret
 
-  [params.utterances]       # https://utteranc.es/
-    owner = ""              # Your GitHub ID
-    repo = ""               # The repo to store comments
-
-  [params.gitalk]           # Gitalk is a comment system based on GitHub issues. see https://github.com/gitalk/gitalk
-    owner = ""              # Your GitHub ID
-    repo = ""               # The repo to store comments
-    clientId = ""           # Your client ID
-    clientSecret = ""       # Your client secret
-
-
-  [params.flowchartDiagrams]# see https://blog.olowolo.com/example-site/post/js-flowchart-diagrams/
-    enable = false
-    options = ""
-
-  [params.sequenceDiagrams] # see https://blog.olowolo.com/example-site/post/js-sequence-diagrams/
-    enable = false
-    options = ""            # default: "{theme: 'simple'}"
-
-  [params.busuanzi]         # count web traffic by busuanzi                             # 是否使用不蒜子统计站点访问量
-    enable = false
-    siteUV = true
-    sitePV = true
-    pagePV = true
-
-  [params.reward]                                         # 文章打赏
-    enable = false
-    wechat = "/path/to/your/wechat-qr-code.png"           # 微信二维码
-    alipay = "/path/to/your/alipay-qr-code.png"           # 支付宝二维码
-
   [params.social]                                         # 社交链接
     a-email = "mailto:bebtterthanme@gmail.com"
     b-github = "https://github.com/N-index"
-#    c-twitter = "http://localhost:1313"
-#    d-linkedin = "http://localhost:1313"
-#    e-gitlab = "http://localhost:1313"
 
 # See https://gohugo.io/about/hugo-and-gdpr/
 [privacy]
@@ -203,23 +161,20 @@ series = "series"
 [markup]
   [markup.tableOfContents]
     startLevel = 1
+    endLevel = 3
   [markup.goldmark.renderer]
     unsafe = true
-
-# 将下面这段配置取消注释可以使 hugo 生成 .md 文件
-# Uncomment these options to make hugo output .md files.
-#[mediaTypes]
-#  [mediaTypes."text/plain"]
-#    suffixes = ["md"]
-#
-#[outputFormats.MarkDown]
-#  mediaType = "text/plain"
-#  isPlainText = true
-#  isHTML = false
-#
-#[outputs]
-#  home = ["HTML", "RSS"]
-#  page = ["HTML", "MarkDown"]
-#  section = ["HTML", "RSS"]
-#  taxonomy = ["HTML", "RSS"]
-#  taxonomyTerm = ["HTML"]
+  [markup.highlight]
+    anchorLineNos = false
+    codeFences = true
+    guessSyntax = false
+    hl_Lines = ''
+    hl_inline = false
+    lineAnchors = ''
+    lineNoStart = 1
+    lineNos = false
+    lineNumbersInTable = true
+    noClasses = true
+    noHl = false
+    style = 'monokai'
+    tabWidth = 4

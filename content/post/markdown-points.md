@@ -21,4 +21,4 @@ categories: ["工具"]
    
    A: 经过查询，自动补全有这么一个配置项可以加。`"markdown.extension.completion.root": "static"`。这样一来，图片目录可以快速、正确地找到了。但是 vscode 本身的 image preview 显示不了图片了，而且 markdown preview enhanced 预览模式里仍旧找不到图片。  
    但针对这个问题再继续解决下去就有点琐碎了，像是在写茴字，于是到此为止。  
-   需要预览的话可以本地启动 hugo server，不要在 markdown preview enhanced 里预览了，一开始想在 markdown preview enhanced 预览的原因是 markdown 足够轻量，不太关心样式，不需要分屏（加一块屏幕很好地预览 hugo server 了，买屏幕的理由增加一个🤪）。
+   需要预览的话可以本地启动 hugo server，不要在 markdown preview enhanced 里预览了，一开始想在 markdown preview enhanced 预览的原因是 markdown 足够轻量，不太关心样式，不需要分屏。
