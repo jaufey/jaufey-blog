@@ -1,3 +1,4 @@
+baseURL = "https://jaufey-blog.vercel.app/"
 languageCode = "zh-cn"
 defaultContentLanguage = "zh-cn"                             # en / zh-cn / ... (This field determines which i18n file to use)
 title = "Jaufey's Blog"
