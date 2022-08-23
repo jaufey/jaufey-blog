@@ -7,7 +7,7 @@ tags: ["Blog"]
 ---
 
 本文列一下本博客开发使用中的问题和总结。
-
+<!--more-->
 ## 过程
 
 因为在学 Docker，而且 Hugo 文档中的 install 部分里提到了 hugo image, 所以我就自告奋勇走了 docker 这条路。

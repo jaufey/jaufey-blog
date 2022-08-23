@@ -5,6 +5,7 @@ lastmod: 2022-07-29T21:11:00+08:00
 draft: false
 tags: ["深拷贝","浅拷贝","deep clone","occasion","数组", "表格", "排序"]
 categories: ["编程"]
+summary: " "
 ---
 原文地址：[https://jaufey.notion.site/16304b150a7142fea50ee371afdc1234](https://jaufey.notion.site/16304b150a7142fea50ee371afdc1234)
 ## 基本需求
@@ -40,7 +41,7 @@ bodys:
 ]
 ```
 
-以上两个功能我实现得很好，但行列排序没有好讲的，而且不是本文重点。之后可针对**列排序**写一篇交互上的[文章]({{< ref "/post/drag-effect.md" >}})。本文的重点在 “取消排序”。
+以上两个功能我实现得很好，但行列排序没有好讲的，而且不是本文重点。之后可针对**列排序**写一篇交互上的[文章]({{< ref "/blog/drag-effect.md" >}})。本文的重点在 “取消排序”。
 
 -----
 ## 取消排序

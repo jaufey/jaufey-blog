@@ -5,6 +5,8 @@ lastmod: 2022-05-21T02:08:00+08:00
 draft: false
 tags: ["grid","subgrid","table","layout", "compatibility","CSS"]
 categories: ["编程"]
+featured : true
+summary: " "
 ---
 
 去年或者前年初识 grid 的时候，才刚处于熟悉 flex 的状态。 

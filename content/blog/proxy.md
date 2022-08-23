@@ -5,6 +5,7 @@ lastmod: 2022-07-16T02:12:22+08:00
 draft: false
 tags: ["ES6","proxy","object method defination","this", "reactive", "arrow function"]
 categories: ["编程"]
+summary: " "
 ---
 
 
@@ -88,7 +89,7 @@ export default class Node{
 看起来多此一举，代码并没有减少多少，甚至看上去更乱了。
 但谁知道呢，有两个原因鼓励我继续探索：  
 1. 想用一下 proxy，至少也要浅尝辄止
-2. 这里的例子只是最小复现，未来很可能会有 moveXTo,moveYTo,moveXBy,moveYBy 等方法都可以触发此 proxy handler
+2. 这里的例子只是最小复现，未来很可能会有 moveXTo, moveYTo, moveXBy, moveYBy 等方法都可以触发此 proxy handler
 
 ---
 

@@ -5,6 +5,8 @@ lastmod: 2022-08-09T21:22:00+08:00
 draft: false
 tags: ["交互", "drag", "dnd", "drop", "pointer","拖拽","虚拟列表", "表格", "排序"]
 categories: ["编程"]
+featured: true
+summary: " "
 ---
 
 前一篇文章提到“有空写一篇列排序的文章”，今天就写一下。尽量做到挖一个坑，填一个坑。原生 markdown 样式或许有些问题，原文在这里：  https://jaufey.notion.site/Drag-effect-e9dc0eec82a548e78de7594d1d2f6b0b
@@ -27,7 +29,7 @@ categories: ["编程"]
 ---
 
 ## 列排序的交互
-<video src="/post-videos/drag-column.mp4" autoplay></video>
+<video src="/post-videos/drag-column.mp4" autoplay muted style="display:block;width:95%;max-width:600px;margin-left:auto;margin-right:auto"></video>
 
 
 **实现思路**：
@@ -45,4 +47,4 @@ categories: ["编程"]
 
 下面这种场景就完全避开了缺点，彰显了优点：
 
-<video src="/post-videos/drag-dom.mp4" autoplay></video>
+<video src="/post-videos/drag-dom.mp4" controls  autoplay muted style="display:block;width:95%;max-width:600px;margin-left:auto;margin-right:auto"></video>

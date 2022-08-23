@@ -3,7 +3,10 @@ title: "升级到 Vue 3"
 date: 2022-08-16T22:15:41+08:00
 lastmod: 2022-08-16T23:52:41+08:00
 draft: false
+category: ["Helloworld"]
 tags: ["Vue","Vue3","framework","legacy"]
+featured : true
+summary: " "
 ---
 
 

@@ -4,8 +4,9 @@ date: 2022-05-04T01:24:00+08:00
 lastmod: 2022-08-21T01:24:00+08:00
 menu: "main"
 weight: 50
-style : "color:red"
-
+# style : "color:red"
+# showToc  : false
+# show_comments : false
 ---
 
 本站点主要记录本人的学习与生活。

@@ -1,166 +1,136 @@
-baseURL = "https://jaufey-blog.vercel.app/"
-languageCode = "zh-cn"
-defaultContentLanguage = "zh-cn"                             # en / zh-cn / ... (This field determines which i18n file to use)
+baseURL = "https://jaufey-blog.vercel.app"
 title = "Jaufey's Blog"
-preserveTaxonomyNames = true
-enableRobotsTXT = true
-enableEmoji = true
-theme = "paper"
-enableGitInfo = false # use git commit log to generate lastmod record # 可根据 Git 中的提交生成最近更新记录。
+theme = "hugo-theme-ladder"
 
-# Syntax highlighting by Chroma. NOTE: Don't enable `highlightInClient` and `chroma` at the same time!
-pygmentsOptions = "linenos=table"
-pygmentsCodefences = true
-pygmentsUseClasses = true
-pygmentsCodefencesGuessSyntax = true
-
-hasCJKLanguage = true     # has chinese/japanese/korean ? # 自动检测是否包含 中文\日文\韩文
-paginate = 5                                              # 首页每页显示的文章数
-disqusShortname = "jaufey-blog"      # disqus_shortname
+description = "Jaufey's Blog"
+homepage = "https://jaufey-blog.vercel.app"
+defaultContentLanguage = "zh"
 googleAnalytics = "G-RWR67FTBQK"
+disqusShortname = "jaufey-blog"      # disqus_shortname
+paginate = 10
 
+[[menu.main]]
+name = "Blog"
+url = "/blog"
+weight = 1
 
-[taxonomies]
-category = "categories"
-tag = "tags"
-series = "series"
+[[menu.main]]
+name = "Tags"
+url = "/tags"
+weight = 2
 
+[[menu.main]]
+name = "Guestbook"
+url = "/guestbook"
+weight = 4
 
-
-
-
-[author]                  # essential                     # 必需
-  name = "Jaufey"
-
-[sitemap]                 # essential                     # 必需
-  changefreq = "weekly"
-  priority = 0.5
-  filename = "sitemap.xml"
-
-
-
-#[[menu.main]] # config your menu             
- # name = "归档"
-  # weight = 5
-  # identifier = "archives"
-  # url = "/post/"
-
+# [[menu.main]]
+# name = "Dashboard"
+# url = "https://umami-ochre-nu.vercel.app/share/R1lHz7QY/hugo-ladder-exampleSite"
+# weight = 5
 
 [params]
-  # color theme
-  theme = 'gray'                 # gray, light, linen, wheat
+brand = "Jaufey's Blog"
+avatarURL = "/avatar.png"
+author = "Jaufey"
+authorDescription = ""
+info = "A doctrine is not judged at all until it is judged in its best form."
+favicon = "/favicon-32x32.png"
+darkModeTheme = "data-dark-mode"
 
-  # header social icons
-  github = 'N-index'       # github.com/YOUR_GITHUB_ID
-  rss = true                      # show rss icon with link
+  [params.options]
+  showDarkMode = true
+  enableImgZooming = true
+  enableMultiLang = false
 
-  # home page profile
-  avatar = 'https://jaufey-blog.vercel.app/avatar.png'     # Gravatar email or image url(e.g. "https://deno.land/logo.svg")
-  name = 'Jaufey'
-  bio = 'A doctrine is not judged at all until it is judged in its best form.'
+[params.comments.giscus]
+enable = true
+repo = "N-index/jaufey-blog"
+repo_id = "R_kgDOHRu3vg"
+category = "Announcements"
+category_id = "DIC_kwDOHRu3vs4CQ_tN"
+mapping = "pathname"
+position = "top"
+lang = "zh-CN"
+loading = "lazy"
+crossorigin = "anonymous"
 
-  # misc
-  disableHLJS = false              # disable requesting highlight.js
-  monoDarkIcon = false             # show monochrome dark mode icon
+[params.comments.utteranc]
+enable = false
+repo = "guangzhengli/blog-comments"
+issueTerm = "pathname"
 
+[params.analytics.google]
+SiteVerificationTag = "GTM-5XBR8LN"
 
-  version = "4.x"           # Used to give a friendly message when you have an incompatible update
-  debug = false             # If true, load `eruda.min.js`. See https://github.com/liriliri/eruda
+[params.analytics.umami]
+enable = false
+website_id = ""
+url = "https://umami-ochre-nu.vercel.app/hugo-ladder.js"
 
-  since = "2022"            # Site creation time          # 站点建立时间
-  # use public git repo url to link lastmod git commit, enableGitInfo should be true.
-  # 指定 git 仓库地址，可以生成指向最近更新的 git commit 的链接，需要将 enableGitInfo 设置成 true.
-  gitRepo = ""
+[params.guestbook]
+title = "Guestbook"
+description = "Leave a comment below. It could be anything –- question, appreciation, information, or even humor."
 
+  [[params.social]]
+  name = "GitHub"
+  pre = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>'
+  url = "https://github.com/N-index"
 
-  # paginate of archives, tags and categories             # 归档、标签、分类每页显示的文章数目，建议修改为一个较大的值
-  archivePaginate = 50
+  # [[params.social]]
+  # name = "Dashboard"
+  # pre = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-box"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>'
+  # url = "https://umami-ochre-nu.vercel.app/share/R1lHz7QY/hugo-ladder-exampleSite"
 
-  # show 'xx Posts In Total' in archive page ?            # 是否在归档页显示文章的总数
-  showArchiveCount = true
+[languages.en]
+languageName = "EN"
 
-  # The date format to use; for a list of valid formats, see https://gohugo.io/functions/format/
-  dateFormatToUse = "2006-01-02"
+[languages.zh]
+languageName = "中"
+author = "Jaufey"
+authorDescription = ""
+info = "A doctrine is not judged at all until it is judged in its best form."
 
-  # show word count and read time ?                       # 是否显示字数统计与阅读时间
-  moreMeta = true
+[languages.zh.guestbook]
+title = "留言板"
+description = "您的评论，会让该网站更精彩！"
 
-  # Syntax highlighting by highlight.js
-  highlightInClient = false
+# [[languages.zh.menu.main]]
+# name = "文章"
+# url = "/blog"
+# weight = 1
 
-  # 一些全局开关，你也可以在每一篇内容的 front matter 中针对单篇内容关闭或开启某些功能，在 archetypes/default.md 查看更多信息。
-  # Some global options, you can also close or open something in front matter for a single post, see more information from `archetypes/default.md`.
-  toc = true                                                                            # 是否开启目录
-  autoCollapseToc = false   # Auto expand and collapse toc                              # 目录自动展开/折叠
-  fancybox = true           # see https://github.com/fancyapps/fancybox                 # 是否启用fancybox（图片可点击）
+[[languages.zh.menu.main]]
+name = "文章"
+url = "/archives"
+weight = 2
 
-  # mathjax
-  mathjax = false           # see https://www.mathjax.org/                              # 是否使用mathjax（数学公式）
-  mathjaxEnableSingleDollar = false                                                     # 是否使用 $...$ 即可進行inline latex渲染
-  mathjaxEnableAutoNumber = false                                                       # 是否使用公式自动编号
-  mathjaxUseLocalFiles = false  # You should install mathjax in `your-site/static/lib/mathjax`
+# [[languages.zh.menu.main]]
+# name = "分类"
+# url = "/categories"
+# weight = 3
 
-  postMetaInFooter = true   # contain author, lastMod, markdown link, license           # 包含作者，上次修改时间，markdown链接，许可信息
-  linkToMarkDown = false    # Only effective when hugo will output .md files.           # 链接到markdown原始文件（仅当允许hugo生成markdown文件时有效）
-  contentCopyright = '<a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a>'     # e.g. '<a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a>'
+[[languages.zh.menu.main]]
+name = "标签"
+url = "/tags"
+weight = 4
 
-  changyanAppid = ""        # Changyan app id             # 畅言
-  changyanAppkey = ""       # Changyan app key
+[[languages.zh.menu.main]]
+name = "留言板"
+url = "/guestbook"
+weight = 5
 
-  livereUID = ""            # LiveRe UID                  # 来必力
+# [[languages.zh.menu.main]]
+# name = "网站统计"
+# url = "https://umami-ochre-nu.vercel.app/share/R1lHz7QY/hugo-ladder-exampleSite"
+# weight = 6
 
-  baiduPush = false        # baidu push                  # 百度
-  baiduAnalytics = ""      # Baidu Analytics
-  baiduVerification = ""   # Baidu Verification
-  googleVerification = ""  # Google Verification         # 谷歌
+[taxonomies]
+series = "series"
+tag = "tags"
+category = "categories"
+archive = "archives"
 
-  # Link custom CSS and JS assets
-  #   (relative to /static/css and /static/js respectively)
-  # customCSS = ["/css/re.css"]
-  # customJS = []
-
-  uglyURLs = false          # please keep same with uglyurls setting
-
-  # Show language selector for multilingual site.
-  showLanguageSelector = false
-
-  [params.publicCDN]        # load these files from public cdn                          # 启用公共CDN，需自行定义
-    enable = true
-    jquery = '<script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>'
-    slideout = '<script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>'
-    fancyboxJS = '<script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>'
-    fancyboxCSS = '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">'
-    timeagoJS = '<script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.min.js" integrity="sha256-jwCP0NAdCBloaIWTWHmW4i3snUNMHUNO+jr9rYd2iOI=" crossorigin="anonymous"></script>'
-    timeagoLocalesJS = '<script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.locales.min.js" integrity="sha256-ZwofwC1Lf/faQCzN7nZtfijVV6hSwxjQMwXL4gn9qU8=" crossorigin="anonymous"></script>'
-    flowchartDiagramsJS = '<script src="https://cdn.jsdelivr.net/npm/raphael@2.2.7/raphael.min.js" integrity="sha256-67By+NpOtm9ka1R6xpUefeGOY8kWWHHRAKlvaTJ7ONI=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/flowchart.js@1.8.0/release/flowchart.min.js" integrity="sha256-zNGWjubXoY6rb5MnmpBNefO0RgoVYfle9p0tvOQM+6k=" crossorigin="anonymous"></script>'
-    sequenceDiagramsCSS = '<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.css" integrity="sha384-6QbLKJMz5dS3adWSeINZe74uSydBGFbnzaAYmp+tKyq60S7H2p6V7g1TysM5lAaF" crossorigin="anonymous">'
-    sequenceDiagramsJS = '<script src="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.js" integrity="sha256-4O4pS1SH31ZqrSO2A/2QJTVjTPqVe+jnYgOWUVr7EEc=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/snapsvg@0.5.1/dist/snap.svg-min.js" integrity="sha256-oI+elz+sIm+jpn8F/qEspKoKveTc5uKeFHNNVexe6d8=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/underscore@1.8.3/underscore-min.js" integrity="sha256-obZACiHd7gkOk9iIL/pimWMTJ4W/pBsKu+oZnSeBIek=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.js" integrity="sha384-8748Vn52gHJYJI0XEuPB2QlPVNUkJlJn9tHqKec6J3q2r9l8fvRxrgn/E5ZHV0sP" crossorigin="anonymous"></script>'
-
-  # Display a message at the beginning of an article to warn the readers that it's content may be outdated.
-  # 在文章开头显示提示信息，提醒读者文章内容可能过时。
-  [params.outdatedInfoWarning]
-    enable = true
-    hint = 30               # Display hint if the last modified time is more than these days ago.    # 如果文章最后更新于这天数之前，显示提醒
-    warn = 180              # Display warning if the last modified time is more than these days ago.    # 如果文章最后更新于这天数之前，显示警告
-
-  [params.gitment]          # Gitment is a comment system based on GitHub issues. see https://github.com/imsun/gitment
-    owner = ""              # Your GitHub ID
-    repo = ""               # The repo to store comments
-    clientId = ""           # Your client ID
-    clientSecret = ""       # Your client secret
-
-  [params.social]                                         # 社交链接
-    a-email = "mailto:bebtterthanme@gmail.com"
-    b-github = "https://github.com/N-index"
-
-# See https://gohugo.io/about/hugo-and-gdpr/
-[privacy]
-  [privacy.googleAnalytics]
-    anonymizeIP = true      # 12.214.31.144 -> 12.214.31.0
-  [privacy.youtube]
-    privacyEnhanced = true
-
-# see https://gohugo.io/getting-started/configuration-markup
 [markup]
   [markup.tableOfContents]
     startLevel = 1
