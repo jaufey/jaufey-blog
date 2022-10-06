@@ -2,9 +2,9 @@
 title: "Static hoisting 静态提升"
 date: 2022-10-01T13:35:00+08:00
 draft: false
-tags: ["经验", "随想", "Vue", "Vue2"]
+tags: ["踩坑", "Vue", "Vue3", "静态提升", "优化", "UB"]
 categories: ["编程"]
-summary: " "
+summary: "静态提升造成了一个问题"
 ---
 
 
