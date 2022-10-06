@@ -3,7 +3,7 @@
   command = "hugo --gc --minify"
 
 [context.production.environment]
-  HUGO_VERSION = "0.98.0"
+  HUGO_VERSION = "0.101.0_extended"
   HUGO_BASEURL = "https://jaufey-blog.netlify.app/"
 
 [[headers]]
