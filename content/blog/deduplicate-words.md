@@ -2,10 +2,10 @@
 title: "认真对待词语和句子"
 date: 2023-06-22T11:46:00+08:00
 lastmod: 2023-06-22T11:46:00+08:00
-draft: true
+draft: false
 category: ["生活"]
 tags: ["言语"]
-featured : true
+featured : false
 summary: " "
 ---
 
