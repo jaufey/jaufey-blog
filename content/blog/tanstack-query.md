@@ -52,4 +52,4 @@ const {isLoading, error, data, refetch} = useQuery({
 ## 总结
 个人感觉，在不想增加太多心智负担的情况下，TanStack Query 其实更适合偏现代、轻量、经过良好设计的应用。如果你不想折腾，可以暂时不用。毕竟，说不定在还未开始尝试之前，它就被淘汰了😅，作者似乎也曾因 RSC 的出现而透露出一股俏皮且随遇而安的恐慌，详见 [You Might Not Need React Query](https://tkdodo.eu/blog/you-might-not-need-react-query)。
 
-当然现在我还是没有定论的，因为我还没有深度使用，本文仍会不断补充。
+本文仍会不断补充。
