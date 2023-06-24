@@ -29,7 +29,7 @@ const {isLoading, error, data, refetch} = useQuery({
     开发者通过“对不同 URL 区分不同的缓存策略”、搭配着“使用 isFetching 作为指示器提示给用户” 或许可以缓解这个问题，但这也提高了开发成本。
 
 ### 开发者层面
-1. 使用 TanStack Query 对开发者有一点点门槛，这个门槛就是：需要开发者曾使用过 `useFetch`、`useRequest` 这类 hooks（composables），或者自己尝试过封装过一个简陋的 `useFetch`。综合讲其实就是需要开发者比较熟悉    Composition API。
+1. 使用 TanStack Query 对开发者有一点点门槛，这个门槛就是：需要开发者曾使用过 `useFetch`、`useRequest` 这类 hooks（composables），或者自己尝试过封装一个简陋的 `useFetch`。综合讲其实就是需要开发者比较熟悉    Composition API。
   
     以我的眼光看，现今还有不少开发者没有达到这个门槛，他们仍在中大型项目中使用命令式的请求方式（即 fetch 或 axios ），不仅制造了大量冗余代码，而且每次都手动维护 `isLoading, isError, error, data` 等状态，降低了开发体验。
     
