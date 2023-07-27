@@ -63,7 +63,7 @@ setLocale({
 ```
 
 ### Partial Validation
-Veelidate 的 `useForm` 提供了 `handleSubmit` 构造函数对表单所有字段进行验证，验证成功/失败后执行回调。
+Veelidate 的 `useForm` 提供了 `handleSubmit` 工厂函数对表单所有字段进行验证，验证成功/失败后执行回调。
 但它没有开放直观的 Partial Validataion 验证，所以我们得自己封装一个。  
 所幸 `useForm` 开放了粒度更细的 `validateField` 和 `setFieldTouched`，基于此我们可以模拟 [handleSubmit 的行为](https://vee-validate.logaretm.com/v4/guide/composition-api/handling-forms/#submission-behavior)（比如验证的同时 Set Field Touched），封装出一个 Partial Validataion 方法：
 ```JavaScript
