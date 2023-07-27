@@ -1,7 +1,7 @@
 ---
 title: "表单验证的一点实践"
 date: 2023-06-22T21:20:00+08:00
-lastmod: 2023-06-22T21:20:00+08:00
+lastmod: 2023-07-27T22:31:00+08:00
 draft: false
 tags: ["表单生成器","yup","zod", "vee-validate"]
 categories: ["编程"]
@@ -17,9 +17,9 @@ VeeValidate 提供了两种使用方式，一种是组件式，另一种是 Comp
 
 ## 已知问题
 1. 本项目的输入控件包含了 NaiveUI 的输入控件（如 NInput, NSelect）。
-2. 本项目的输入控件也包含自定义的一些输入控件。而 NaiveUI的 NFormItem 组件，没有将 Trigger 开放出来。所以用 NaiveUI 的表单验证组件无法满足需求。
+2. 本项目的输入控件也包含自定义的一些输入控件。而 NaiveUI 的 NFormItem 组件，没有将 Trigger 开放出来。所以用 NaiveUI 的表单验证组件无法满足需求。
 
-解决这俩个问题的办法不难，那就是使用 VeeValidate Composition API 封装出一套跟 NaiveUI 类似的 CustomForm 及 CustomFormItem，并将 useField 的 `handleBlur` 等方法 通过 SlotProps 由 CustomFormItem 传给输入控件（无论是 NaiveUI 的控件还是自定义控件）。
+解决这俩个问题的办法不难，那就是使用 VeeValidate Composables 封装出一套跟 NaiveUI 类似的 CustomForm 及 CustomFormItem，并将 `useField` 的 `handleBlur` 等方法 通过 SlotProps 由 CustomFormItem 传给输入控件（无论是 NaiveUI 的控件还是自定义控件）。
 
 
 ## 过程
@@ -102,6 +102,7 @@ const formRules = yup.object({
     newPasswordRepeat: yup.string().required().oneOf([yup.ref('newPassword')], t('password_not_match'))
 });
 ```
+注意，如果是给每个 `useField` 分别传入 rule 而不是给 `useForm` 传入整个 rules，那么这种情况可能会有 BUG，ref 不会生效。
 
 
 ## 遇到的问题
@@ -109,4 +110,6 @@ VeeValidate 的 `useField` 暴露出的 `value` 是用来绑定到原生输入�
 也就是说，在 UI 组件库作者手中，`useField` 应该被直接写入自造的输入控件中，`value` 绑定到原生输入控件上，再通过 `syncVModel` 将 `value` 同步至输入控件外部。  
 但我所面临的这个场景，输入控件既可能来自外部也可能来自内部，所以不宜使用 `value` 作为表单值的来源，这样一来验证时的值将无法与表单实际值保持一致。所以我用了扭曲的方法：Watch 输入控件的值，并通过 `useField` 所提供的 `setValue` 将值同步给 CustomForm 及 CustomFormItem。
 
-文章结束，陈述内容包含较多的细节 API，比较无聊。
+## 结束
+文章结束，陈述内容包含较多的细节 API，比较无聊。    
+倒是最近韩国科学家发了常温超导材料的论文，很抓眼球，非常刺激。
