@@ -100,4 +100,4 @@ summary: " "
 
 以上所描述的迁移内容大都只是按部就班的东西。
 
-下一篇文章，讲下迁移过程中遇到的一个重点问题：static hoisting 及思考
+下一篇文章，讲下迁移过程中遇到的一个重点问题：[static hoisting 及思考](/blog/static-hoisting/)

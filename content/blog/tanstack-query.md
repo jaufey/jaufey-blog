@@ -45,12 +45,12 @@ const {isLoading, error, data, refetch} = useQuery({
 3. 因为缓存数据是 readonly 的，开发者[不可以修改 cache 数据](https://github.com/TanStack/query/issues/4750)，所以会导致开发习惯的变化：
     
     假设网页需要渲染一个从 API 获取的 list，允许用户通过点击来折叠或展开内容。那么在没有使用 TanStack Query 之前，我可能直接就在获取 list 之后为每个 item 追加一个 collapsed 属性，并动态地修改它。在使用了 TanStack Query 之后，开发者则需要多维护一个 map 来表示 item 的折叠状态，开发体验有种降低的感觉。
-4. useQuery 提供的返回值并不完全符合开发需求，比如我自己封装的 useFetch 就暴露了 i18n 之后的 errorMessage 出来，所以开发者还要基于 useQuery 二次封装。
+4. useQuery 提供的返回值并不完全符合开发需求，比如我自己封装的 useFetch 就暴露了 i18n errorMessage 出来，所以开发者还要基于 useQuery 二次封装。
 5. 维护成本。我不认为 TanStack Query 会在你的项目中完全替代 useFetch，除非是完全新开的项目，所以你的项目会可能会同时包含大量 useQuery 和大量 useFetch，以及... fetch。
 6. 文档不佳，没有 SWR 的文档简洁有力。曾几何时，我认为 TanStack Query 的文档内容用词洒脱，虽然不太好阅读，但有着一种粗犷的、非常 native 的风格，我甚至想摘抄一些词句送给同样追求 native 翻译的老板。但是伴随着粗犷风格而来的，还有粗枝大叶：
     - 因为它适配了多个前端框架，所以你在 Vue 的版本里还经常可以看到 React 版本的配置描述。
     - 有些参数没在文档中列出来，导致我在寻找 queryClient 的 defaultOptions 参数文档时，只能依据 windows focus refetch 的那页的内容去猜。 
-7. Vue Query 不是一等公民。作者发文讨论问题、阐述最佳实践的时候，总是以 React Query 举例，虽然思想相同，API 也没什么区别，但难免有照料不到 Vue 的时候。比如 React 的实现提供了 queryClientProvider 组件，这使得 React 开发者能自定义 queryClient。而 Vue 则没有提供 Provider 组件，只能以全局注册插件的方式来集成，而全局注册因为不处于 setup 上下文中，所以无法使用其他 hooks。
+7. Vue Query 不是一等公民。作者发文讨论问题、阐述最佳实践的时候，总是以 React Query 举例，虽然思想相同，API 也没什么区别，但难免有照料不到 Vue 的时候。比如 React 的实现提供了 queryClientProvider 组件，这使得 React 开发者能自定义 queryClient。而 Vue 则没有提供 Provider 组件，只能以全局注册插件的方式来集成，而全局注册因为不处于 setup 上下文中，所以无法在初始化时使用其他 hooks。
 8. 特殊情况下的状态检测。这一点算不上缺点，但确实需要开发者花费脑力去权衡利弊。比如：首次请求成功并展示了数据，然后 focusout 后重新 focus 触发了 refetch， 此时请求失败。这时 staled data 与 error 并存，展示哪一个，或者同时展示？这取决于开发者想带给用户的体验。[参考链接](https://tkdodo.eu/blog/status-checks-in-react-query)
 9. Error 只会迟到，而不会缺席。Retry 的指数避退策略其实是有点唬人的，我从来没听说过第一次请求失败了，然后多重试了几次后就成功了的，除非用户正处于与指数避退算法同步照应的网络环境下。（PS. 该不会有人用 TanStack Query 来抢票或者查高考成绩吧）
 

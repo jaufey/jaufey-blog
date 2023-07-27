@@ -1,7 +1,7 @@
 ---
 title: "当 Proxy 照进现实"
 date: 2022-07-16T02:12:22+08:00
-lastmod: 2022-07-16T02:12:22+08:00
+lastmod: 2023-07-03T19:23:00+08:00
 draft: false
 tags: ["ES6","proxy","object method defination","this", "reactive", "arrow function"]
 categories: ["编程"]
@@ -105,3 +105,10 @@ proxy 的 setter 里的 this 指向了 这个 proxy 的 handler，
 
 
 直觉欺骗了我。
+
+
+
+-----
+
+后续：
+几个月前借着重构 UI 的时间，把这坨屎铲了。——2023年7月3日。
