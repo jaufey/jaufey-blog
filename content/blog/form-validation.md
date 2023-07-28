@@ -29,35 +29,19 @@ VeeValidate 提供了两种方案。一种是 [Yup](https://github.com/jquense/y
 
 ### Internationalization
 在 VeeValidate 中配置国际化要按照 Schema Validator 的方式来。对于 Yup 来说，主要就是声明多种错误类型的错误消息。
-将下面代码放入某层 Provider 即可。
+将类似下面的代码放入某层 Provider 即可。
 ```JavaScript
 import {setLocale} from 'yup';
 const {t} = useI18n();
 setLocale({
-    mixed: {
-        required: ({label}) => {
-            return t('field_required', {label})
-        },
-        oneOf: ({label, resolved: options}) => {
-            const optionList = options.map(optionValue => `"${t('option_' + optionValue)}"`).join(t('option_delimiter') + ' ');
-            return t('not_one_of', {label, optionList})
-        }
-    },
     string: {
-        min: ({label, min}) => {
-            return t('string_too_short', {label, min});
-        },
-        max: ({label, max}) => {
-            return t('string_too_long', {label, max});
-        },
-        email: ({label})=>{
-            return t('string_not_valid_email', {label});
-        }
+        min: ({label, min}) => t('string_too_short', {label, min}),
+        max: ({label, max}) => t('string_too_long', {label, max}),
+        email: ({label}) => t('string_not_valid_email', {label})
     },
     array: {
-        max: ({label, max})=>{
-            return  t('array_too_long', {label, max});
-        }
+        min: ({label, min}) => t('array_too_short', {label, min}),
+        max: ({label, max}) => t('array_too_long', {label, max})
     }
 })
 ```
