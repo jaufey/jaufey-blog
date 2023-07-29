@@ -25,46 +25,30 @@ VeeValidate 提供了两种使用方式，一种是组件式，另一种是 Comp
 ## 过程
 ### Schema Validator
 VeeValidate 提供了两种方案。一种是 [Yup](https://github.com/jquense/yup), 一种是 [Zod](https://github.com/colinhacks/zod)。Zod 的名声大一些使用者也多一些，但 Yup 也不差。因为 Zod 的国际化没有 Yup 这么简单，所以没有花费时间去深究而**直接选用了 Yup**。
-除了这两个， 市面上还有一些其他 Schema Validator，比如近期出现的 [Valibot](https://github.com/fabian-hiller/valibot)，主打一个体积小。
+除了这两个，市面上还有一些其他 Schema Validator，比如近期出现的 [Valibot](https://github.com/fabian-hiller/valibot)，主打一个体积小。
 
 ### Internationalization
 在 VeeValidate 中配置国际化要按照 Schema Validator 的方式来。对于 Yup 来说，主要就是声明多种错误类型的错误消息。
-将下面代码放入某层 Provider 即可。
+将类似下面的代码放入某层 Provider 即可。
 ```JavaScript
 import {setLocale} from 'yup';
 const {t} = useI18n();
 setLocale({
-    mixed: {
-        required: ({label}) => {
-            return t('field_required', {label})
-        },
-        oneOf: ({label, resolved: options}) => {
-            const optionList = options.map(optionValue => `"${t('option_' + optionValue)}"`).join(t('option_delimiter') + ' ');
-            return t('not_one_of', {label, optionList})
-        }
-    },
     string: {
-        min: ({label, min}) => {
-            return t('string_too_short', {label, min});
-        },
-        max: ({label, max}) => {
-            return t('string_too_long', {label, max});
-        },
-        email: ({label})=>{
-            return t('string_not_valid_email', {label});
-        }
+        min: ({label, min}) => t('string_too_short', {label, min}),
+        max: ({label, max}) => t('string_too_long', {label, max}),
+        email: ({label}) => t('string_not_valid_email', {label})
     },
     array: {
-        max: ({label, max})=>{
-            return  t('array_too_long', {label, max});
-        }
+        min: ({label, min}) => t('array_too_short', {label, min}),
+        max: ({label, max}) => t('array_too_long', {label, max})
     }
 })
 ```
 
 ### Partial Validation
-Veelidate 的 `useForm` 提供了 `handleSubmit` 构造函数对表单所有字段进行验证，验证成功/失败后执行回调。
-但它没有开放直观的 Partial Validataion 验证，所以我们得自己封装一个。  
+Veelidate 的 `useForm` 提供了 `handleSubmit` 工厂函数对表单所有字段进行验证，验证成功/失败后执行回调。
+但它没有开放直观的 Partial Validation 验证，所以我们得自己封装一个。  
 所幸 `useForm` 开放了粒度更细的 `validateField` 和 `setFieldTouched`，基于此我们可以模拟 [handleSubmit 的行为](https://vee-validate.logaretm.com/v4/guide/composition-api/handling-forms/#submission-behavior)（比如验证的同时 Set Field Touched），封装出一个 Partial Validataion 方法：
 ```JavaScript
 async function validatePartial(cb, errCb, fieldFilter = () => true) {
