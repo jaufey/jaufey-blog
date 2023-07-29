@@ -108,7 +108,7 @@ const formRules = yup.object({
 ## 遇到的问题
 VeeValidate 的 `useField` 暴露出的 `value` 是用来绑定到原生输入控件上的。  
 也就是说，在 UI 组件库作者手中，`useField` 应该被直接写入自造的输入控件中，`value` 绑定到原生输入控件上，再通过 `syncVModel` 将 `value` 同步至输入控件外部。  
-但我所面临的这个场景，输入控件既可能来自外部也可能来自内部，所以不宜使用 `value` 作为表单值的来源，这样一来验证时的值将无法与表单实际值保持一致。所以我用了扭曲的方法：Watch 输入控件的值，并通过 `useField` 所提供的 `setValue` 将值同步给 CustomForm 及 CustomFormItem。
+但我所面临的这个场景，输入控件既可能来自外部也可能来自内部，所以不宜使用 `value` 作为表单值的来源，这样一来验证时的值将无法与表单实际值保持一致。所以我用了扭曲的方法：Watch 输入控件的值，并通过 `useField` 所提供的 `setValue` 将值同步给 CustomForm 及 CustomFormItem。 
 
 ## 结束
 文章到此结束，陈述内容包含较多的细节 API，比较无聊，以后再也不写这么烂的文章了。    
