@@ -44,7 +44,7 @@ const {isLoading, error, data, refetch} = useQuery({
 
 3. 因为缓存数据是 readonly 的，开发者[不可以修改 cache 数据](https://github.com/TanStack/query/issues/4750)，所以会导致开发习惯的变化：
     
-    假设网页需要渲染一个从 API 获取的 list，允许用户通过点击来折叠或展开内容。那么在没有使用 TanStack Query 之前，我可能直接就在获取 list 之后为每个 item 追加一个 collapsed 属性，并动态地修改它。在使用了 TanStack Query 之后，开发者则需要多维护一个 map 来表示 item 的折叠状态，开发体验有种降低的感觉。
+    假设网页需要渲染一个从 API 获取的 list，允许用户通过点击来折叠或展开内容。那么在没有使用 TanStack Query 之前，我可能直接就在获取 list 之后为每个 item 追加一个 collapsed 属性，并动态地修改它。在使用了 TanStack Query 之后，开发者则需要多维护一个 map 来表示 item 的折叠状态，开发体验有种降低的感觉。 
 4. useQuery 提供的返回值并不完全符合开发需求，比如我自己封装的 useFetch 就暴露了 i18n errorMessage 出来，所以开发者还要基于 useQuery 二次封装。
 5. 维护成本。我不认为 TanStack Query 会在你的项目中完全替代 useFetch，除非是完全新开的项目，所以你的项目会可能会同时包含大量 useQuery 和大量 useFetch，以及... fetch。
 6. 文档不佳，没有 SWR 的文档简洁有力。曾几何时，我认为 TanStack Query 的文档内容用词洒脱，虽然不太好阅读，但有着一种粗犷的、非常 native 的风格，我甚至想摘抄一些词句送给同样追求 native 翻译的老板。但是伴随着粗犷风格而来的，还有粗枝大叶：
@@ -57,6 +57,6 @@ const {isLoading, error, data, refetch} = useQuery({
 ## 总结
 个人感觉，在不想增加太多心智负担的情况下，TanStack Query 其实更适合偏现代、轻量、经过良好设计的应用。如果你不想折腾，可以暂时不用，除非你们小组已经形成共识——要在用户体验上面花大功夫。
 
-虽然但是，说不定在还未开始尝试之前，它就被淘汰了😅，作者似乎也曾因 RSC 的出现而透露出一股俏皮且随遇而安的恐慌，详见 [You Might Not Need React Query](https://tkdodo.eu/blog/you-might-not-need-react-query)。
+虽然但是，说不定在还未开始尝试之前，它就被淘汰了😅，作者似乎也曾因 RSC 的出现而透露出一股俏皮且随遇而安的恐慌（虽然 RSC 口碑也不咋样），详见 [You Might Not Need React Query](https://tkdodo.eu/blog/you-might-not-need-react-query)。
 
 本文仍会不断补充。
