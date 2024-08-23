@@ -6,10 +6,10 @@ draft: false
 tags: ["CMS", "Strapi"]
 ---
 
-Strapi 是一个无头 CMS，本文列一下使用 Strapi 遇到的问题。版本是：V4
+[Strapi](https://strapi.io/) 是一个无头 CMS，本文列一下使用 Strapi 遇到的问题。版本是：V4
 
 ## 优点
-admin 面板中的操作基本都没有问题。设计好看大方。  
+admin 面板中的主体功能、基本操作都没有问题，设计简洁大方。  
 
 ## 缺点
 没有适配移动端
