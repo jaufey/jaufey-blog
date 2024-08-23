@@ -23,7 +23,7 @@ tags: ["CMS", "Strapi"]
     一开始还试图妄想通过测试这些配置项搭配出可行无误的地址，但这几个配置项像是黑盒一样按下葫芦浮起瓢，走起路来摇摇晃晃撒汤带水，后续看到社区有同样问题有维护者说他们的接口地址是硬编码的，并且甩锅提倡使用者应该通过前置代理去分流什么的，导致我是直接放弃配置了，Strapi 的所有东西全部放到子域名中去。
 6. Entity Service API 和 Query Engine API 内部耦合高。首先我知道大部分情况下，Entity Service 是可以 cover 自定义功能的，只有 cover 不住了才需要使用 Query Engine。
     
-    场景：客户端 REST API findOne 试图通过 Slug 访问资源时，需要重写 findOne 查询的逻辑，因为原始 findOne 是通过 id 查的。然而从能搜到的示例([https://www.youtube.com/watch?v=qp-g8SUfreI&t=18s](https://www.youtube.com/watch?v=qp-g8SUfreI&t=18s)) 来看，也基本是糊弄人，上来就用 Query Engine 直接用 `where slug = xxx` 来查，一想就有问题，因为官方的 findOne 中的 Entity Service 内部肯定调用了 Query Engine，中间处理了各种 filter、populate 等参数到 Query Engine 的 Normalize，如果用户手动去调用 Query Engine，那就根本不知道如何让 Query Engine 的 filter、populate 生效。Entity Service 的 filter、populate 等参数也不能照搬过来，这两套API有很多相似但又不相同的地方，一层一层点到源码里面才知道 Entity Service findOne 调用 Query Engine 时写死了 `where = id` 。
+    场景：客户端 REST API findOne 试图通过 Slug 访问资源时，需要重写 findOne 查询的逻辑，因为原始 findOne 是通过 id 查的。然而从能搜到的示例([https://www.youtube.com/watch?v=qp-g8SUfreI&t=18s](https://www.youtube.com/watch?v=qp-g8SUfreI&t=18s)) 来看，也基本是糊弄人，上来就用 Query Engine 直接用 `where slug = xxx` 来查，一想就有问题，因为官方的 findOne 中的 Entity Service 内部肯定调用了 Query Engine，中间处理了各种 filter、populate 等参数到 Query Engine 的 Normalize，如果用户手动去调用 Query Engine，那就根本不知道如何让 Query Engine 的 filter、populate 生效。Entity Service 的 filter、populate 等参数也不能照搬过来，这两套API有很多相似但又不相同的地方，一层一层点到源码里面才知道 Entity Service findOne 调用 Query Engine 时写死了 `where id = xxx` 。
    
     后来还是索性自己重写 findOne 的逻辑，在Entity Service基础上筛出所有记录，并且限制 filter=slug，limit=1，总觉的很脏。
     
