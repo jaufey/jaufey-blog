@@ -16,7 +16,7 @@ admin 面板中的主体功能、基本操作都没有问题，设计简洁大�
 
 ## 坑
 1. Media Library 中的逻辑文件夹未反应到文件系统中。很难想象一个正儿八经的 CMS 会把所有图片、视频、文档放到同一个文件夹下，后续文件数量上来后文件系统操作得有多慢。这点根本比不上 Wordpress 和 MediaWiki，前者是按日期分文件夹，后者是按文件名 Hash 分文件夹，而 Strapi 像是未完成的项目一样。
-2. Data Import 过于慢，15Kb/s 的导入速度对于 2G 多的压缩包来说，根本传不完，Export 时关闭压缩和加密都没有效果，要不是不知道它的 Import 操作的传输Upload文件夹部分有什么副作用，我直接 Copy 文件夹过去算了。后续要不是 Data Transfer 的速度突然飙到几百K了，那数据迁移工作算是功亏一篑彻底失败了，毕竟项目至少得在 CI/CD 测试环境中跑起来一次才好备份迁移啊。
+2. Data Import 过于慢，15Kb/s 的导入速度对于 2G 多的压缩包来说，根本传不完，Export 时关闭压缩和加密都没有效果，要不是不知道它的 Import 操作的传输Upload文件夹部分有什么副作用，我直接 Copy 文件夹过去算了。后续要不是 Data Transfer 在数次失败后传输速度突然飙到几百K了，那数据迁移工作算是功亏一篑彻底失败，毕竟项目至少得在 CI/CD 测试环境中跑起来一次才好备份迁移啊。
 3. 关于 Media Library 的 Upload 相关接口不太成熟，像是不得已才暴露出来几个查文件、改文件的接口来应付社区。
     1. [https://docs.strapi.io/dev-docs/plugins/upload#endpoints](https://docs.strapi.io/dev-docs/plugins/upload#endpoints)
     使用这个API上传文件时，不能声明目录，而是统一放到他们硬编码的 /api-upload 中去，十分草台离谱。
