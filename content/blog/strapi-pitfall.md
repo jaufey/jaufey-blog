@@ -42,7 +42,7 @@ admin 面板中的主体功能、基本操作都没有问题，设计简洁大�
 
    首先我知道大部分情况下，Entity Service 是可以 cover 自定义功能的，只有 cover 不住了才需要使用 Query Engine。
    
-   场景：客户端 REST API findOne 试图通过 Slug 访问资源时，需要重写 findOne 查询的逻辑，因为原始 findOne 是通过 id 查的。然而从能搜到的示例([https://www.youtube.com/watch?v=qp-g8SUfreI&t=18s](https://www.youtube.com/watch?v=qp-g8SUfreI&t=18s)) 来看，也基本是糊弄人，上来就用 Query Engine 直接用 `where slug = xxx` 来查，一想就有问题，因为官方的 findOne 中的 Entity Service 内部肯定调用了 Query Engine，中间处理了各种 filter、populate 等参数到 Query Engine 的 Normalize，如果用户手动去调用 Query Engine，那就根本不知道如何让 Query Engine 的 filter、populate 生效。Entity Service 的 filter、populate 等参数也不能照搬过来，这两套API有很多相似但又不相同的地方，一层一层点到源码里面才知道 Entity Service findOne 调用 Query Engine 时写死了 `where id = xxx` 。
+   场景：客户端 REST API findOne 试图通过 Slug 访问资源时，需要重写 findOne 查询的逻辑，因为原始 findOne 是通过 id 查的。然而搜到的这个示例([https://www.youtube.com/watch?v=qp-g8SUfreI&t=18s](https://www.youtube.com/watch?v=qp-g8SUfreI&t=18s)) 是纯粹糊弄人，上来就 Query Engine 直接用 `where slug = xxx` 来查，一想就有问题，因为官方的 findOne 中的 Entity Service 内部肯定调用了 Query Engine，中间处理了各种 filter、populate 等参数到 Query Engine 的 Normalize，如果用户手动去调用 Query Engine，那就根本不知道如何让 Query Engine 的这些参数生效。Entity Service 的这些参数也不能照搬给 Query Engine，因为这两套 API 有很多相似但又不相同的地方，一层一层点到源码里面才知道 Entity Service findOne 调用 Query Engine 时写死了 `where id = xxx` 。
    
     后来还是索性自己重写 findOne 的逻辑，在Entity Service基础上筛出所有记录，并且限制 filter=slug，limit=1，总觉的很脏。
     
