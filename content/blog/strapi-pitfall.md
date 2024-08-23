@@ -26,10 +26,10 @@ admin 面板中的主体功能、基本操作都没有问题，设计简洁大�
 4. Upload API 不成熟。
 
    关于 Media Library 的 Upload 相关接口不太成熟，像是不得已才暴露出来几个查文件、改文件的接口来应付社区。
-    1. [https://docs.strapi.io/dev-docs/plugins/upload#endpoints](https://docs.strapi.io/dev-docs/plugins/upload#endpoints)
+    - [https://docs.strapi.io/dev-docs/plugins/upload#endpoints](https://docs.strapi.io/dev-docs/plugins/upload#endpoints)
     使用这里面的 API 上传文件时，不能声明目录，而是统一放到他们硬编码的 /api-upload 中去，十分草台离谱。
-    2. 没有访问目录结构的API，非得用只能去后台网页上扒管理员接口下来，自己维护 folder 及其 path 或 id 信息。
-    3. 获取文件列表的时候，不能筛选目录结构，导致从其他系统迁移文章到 Strapi 的过程中，原本不同目录下的同名图片替换成了首个同名图片。
+    - 没有访问目录结构的API，非得用只能去后台网页上扒管理员接口下来，自己维护 folder 及其 path 或 id 信息。
+    - 获取文件列表的时候，不能筛选目录结构，导致从其他系统迁移文章到 Strapi 的过程中，原本不同目录下的同名图片替换成了首个同名图片。
 
 6. 部署配置耍小孩玩。
 
