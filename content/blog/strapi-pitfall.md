@@ -48,3 +48,5 @@ admin 面板中的主体功能、基本操作都没有大问题，设计简洁�
     后来还是索性自己重写 findOne 的逻辑，在Entity Service基础上筛出所有记录，并且限制 filter=slug，limit=1，总觉得很脏。
     
     刚才看了下官方 foodAdvisor 这个 Demo 项目，他们在 next 中获取单篇 blog 也是根据 slug 筛出了所有文章，然后取了第一篇，想必他们也知道这个问题了，那还不赶快优化。
+
+ 6. REST API 的 filter 中的 $ne 针对 Boolean 的字段不太严谨。假如有一个 nullable 字段，当我通过 $ne = true 过滤的时候，应该同时过滤出 null 或 false 的 entities，但实际上却只过滤出了 false 的 entities，我仍要通过 $or 来组合出想要的结果。
