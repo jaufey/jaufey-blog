@@ -22,7 +22,7 @@ admin 面板中的主体功能、基本操作都没有问题，设计简洁大�
 2. Upload 功能不成熟。
     - 在 Docker 中，尽量不要往项目运行时的代码目录下写东西，但大部分 CMS 的资源 LocalProvider 有写文件的操作，然而在 Upload 插件中没有办法配置文件目录到其他指定目录，导致 CI 需要做其他软链操作来确保服务的无状态。
     - 存文件思路小学生水平：Media Library 中的逻辑文件夹未反应到文件系统中。很难想象一个正儿八经的 CMS 会把所有图片、视频、文档放到同一个文件夹下，后续文件数量上来后 fs 操作得有多慢。这点根本比不上 Wordpress 和 MediaWiki，前者是按日期分文件夹，后者是按文件名 Hash 分文件夹，而 Strapi 像是单人维护的练手项目一样（虽然事实上可能确实是）。
-    - 插件接口文档不全。我想在后台的 db lifecycles 中使用 upload 的相关功能来为当前的 entity 比如 blog 自动添加 cover, 但是文档中没有写怎么用，只有个这个 upload single file 的 demo [Upload single file from an API controller](https://docs.strapi.io/dev-docs/plugins/upload#upload-single-file-from-an-api-controller)。findOne 和 findMany 有没有、要传什么参数都不知道。经过测试发现 findOne 和 findMany 都不需要传 uid，应该是有默认的。
+    - 插件接口文档不全。我想在后台的 db lifecycles 中使用 upload 的相关功能来为当前的 entity （比如 blog）自动添加 cover, 但是文档中没有写怎么用，只有一个 [Upload single file from an API controller](https://docs.strapi.io/dev-docs/plugins/upload#upload-single-file-from-an-api-controller) 的 demo 。findOne 和 findMany 有没有、要传什么参数都不知道，经过调试才实现功能。我要做的操作也不算多么小众仅仅是在后台操作文件而已。
 
 3. Upload API 不成熟。
 
