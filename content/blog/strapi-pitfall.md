@@ -36,8 +36,8 @@ admin 面板中的主体功能、基本操作都没有问题，设计简洁大�
 
    `config/admin.js` 中的 admin 面板地址，及 `config/server.js` 的配置过程非常不顺利。
    
-   场景：因为 Strapi 很可能是作为其他系统的一个子系统来使用，所以路由地址也很可能是 [https://localhost/strapi/admin](https://localhost/strapi/admin，但是)，前端流量由 Nginx 来分流。但是你即便配了 PublicUrl 或 Admin 面板的 URL，Strapi Admin 面板中的其他请求仍然是从根地址发起。  
-    一开始还试图妄想通过测试这些配置项搭配出可行无误的地址，但这几个配置项像是黑盒一样按下葫芦浮起瓢，走起路来摇摇晃晃撒汤带水，后续看到社区有同样问题有维护者说他们的接口地址是硬编码的，并且甩锅提倡使用者应该通过前置代理去分流什么的，导致我是直接放弃配置了，Strapi 的所有东西全部放到子域名中去。
+   场景：因为 Strapi 很可能是作为其他系统的一个子系统来使用，所以路由地址也很可能是 https://localhost/strapi/admin，前端流量由 Nginx 来分流。但是你即便配了 PublicUrl 或 Admin 面板的 URL，Strapi Admin 面板中的其他请求仍然是从根地址发起。  
+    一开始还试图妄想通过测试这些配置项搭配出可行无误的地址，但这几个配置项像是黑盒一样按下葫芦浮起瓢，走起路来摇摇晃晃撒汤带水，后续看到社区有同样问题有维护者说他们的接口地址是硬编码的，并且甩锅提倡使用者应该通过前置代理去分流什么的，导致我是直接放弃配置了，Strapi 的所有东西全部放到子域名中去。[这个帖子](https://feedback.strapi.io/developer-experience/p/configure-strapi-backend-url-after-build) 有人直接开骂了。
 
 5. 自定义接口时内部耦合，文档缺失，找不到最佳实践，Entity Service API 和 Query Engine API 内部耦合高。
 
