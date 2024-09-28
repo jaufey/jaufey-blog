@@ -6,11 +6,19 @@ draft: false
 tags: ["CMS", "Strapi"]
 ---
 
-[Strapi](https://strapi.io/) 是一个无头 CMS，总体用下来70分，本文列一下使用 Strapi 遇到的问题。版本是：V4
+[Strapi](https://strapi.io/) 是一个无头 CMS，总体用下来70分，本文列一下使用 Strapi 遇到的问题。  
+版本是：V4，太不巧了，在项目完成后，刚好出了 v5 版本
 
 ## 优点
-1. 业务人员：admin 面板中的主体功能、基本操作都没有大问题，设计简洁大方，流程上手简单。
-2. 开发人员：目录结构清晰，架构比较好，扩展功能方便，编写插件方便。
+1. 业务人员：
+   - admin 面板中的主体功能、基本操作都没有大问题，设计简洁大方，流程上手简单。
+2. 开发人员：
+   - 目录结构清晰，架构比较好
+   - 扩展功能方便，编写插件方便
+   - 其他 SSR 框架支持比较好，比如有 Nuxt Strapi 这种 module
+   - 生态还算不错，虽然没有特别要用的 plugin 就是了。
+   - 总的来说，文档也还不错，中度使用没问题。至少有些长久遗留的问题会在他们论坛会被骂，能被我索引到。
+
 
 ## 坑
 1. 数据迁移费老大劲。
@@ -41,10 +49,8 @@ tags: ["CMS", "Strapi"]
 
    首先我知道大部分情况下，Entity Service 是可以 cover 自定义功能的，只有 cover 不住了才需要使用 Query Engine。
    
-   场景：客户端 REST API findOne 试图通过 Slug 访问资源时，需要重写 findOne 查询的逻辑，因为原始 findOne 是通过 id 查的。然而搜到的这个示例([https://www.youtube.com/watch?v=qp-g8SUfreI&t=18s](https://www.youtube.com/watch?v=qp-g8SUfreI&t=18s)) 是纯粹糊弄人，上来就 Query Engine 直接用 `where slug = xxx` 来查，一想就有问题，因为官方的 findOne 中的 Entity Service 内部肯定调用了 Query Engine，中间处理了各种 filter、populate 等参数到 Query Engine 的 Normalize，如果用户手动去调用 Query Engine，那就根本不知道如何让 Query Engine 的这些参数生效。Entity Service 的这些参数也不能照搬给 Query Engine，因为这两套 API 有很多相似但又不相同的地方，一层一层点到源码里面才知道 Entity Service findOne 调用 Query Engine 时写死了 `where id = xxx` 。
+   场景：客户端 REST API findOne 试图通过 Slug 访问资源时，需要重写 findOne 查询的逻辑，因为原始 findOne 是通过 id 查的。然而搜到的这个[解决方案](https://www.youtube.com/watch?v=qp-g8SUfreI&t=18s)纯粹是糊弄人，上来就 Query Engine 直接用 `where slug = xxx` 来查，一想就有问题，因为官方的 findOne 中的 Entity Service 内部肯定调用了 Query Engine，中间处理了各种 filter、populate 等参数到 Query Engine 的 Normalize，如果用户手动去调用 Query Engine，那就根本不知道如何让 Query Engine 的这些参数生效。Entity Service 的这些参数也不能照搬给 Query Engine，因为这两套 API 有很多相似但又不相同的地方，一层一层点到源码里面才知道 Entity Service findOne 调用 Query Engine 时写死了 `where id = xxx` 。
    
-    后来还是索性自己重写 findOne 的逻辑，在Entity Service基础上筛出所有记录，并且限制 filter=slug，limit=1，总觉得很脏。
-    
-    刚才看了下官方 foodAdvisor 这个 Demo 项目，他们在 next 中获取单篇 blog 也是根据 slug 筛出了所有文章，然后取了第一篇，想必他们也知道这个问题了，那还不赶快优化。
+    后来还是索性自己重写 findOne 的逻辑，在Entity Service基础上筛出所有记录，并且限制 filter=slug，limit=1，总觉得很脏。刚才看了下官方 foodAdvisor 这个 Demo 项目，他们在 next 中获取单篇 blog 也是根据 slug 筛出了所有文章，然后取了第一篇，想必他们也知道这个问题了，那还不赶快优化😒。
 
  6. REST API 的 filter 中的 $ne 针对 Boolean 的字段不太严谨。假如有一个 nullable 字段，当我通过 $ne = true 过滤的时候，应该同时过滤出 null 或 false 的 entities，但实际上却只过滤出了 false 的 entities，我仍要通过 $or 来组合出想要的结果。

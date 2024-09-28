@@ -27,5 +27,7 @@ weight: 50
 | 2021/11 - 至今|    工人    | HangZhou |
 | 2016/09 - 2020/06 | 学生      | ChangSha |
 
+## 简历
+[/resume](/resume/)
 
 
