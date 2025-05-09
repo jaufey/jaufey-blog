@@ -11,15 +11,10 @@ toc: false
 <table>
 <tbody>
 <tr>
-<td>姓名：张建鑫   </td>
-<td>工作经验：3年     </td>
-<td>英语：CET-4   </td>
+<td>姓名：Jaufey   </td>
 </tr>
 <tr>
-<td>学历：长沙理工大学本科   </td>
-<td>电话：18969114545  </td>
-<td>邮箱：<a href="mailto:n-index@outlook.com" target="_blank">n-index@outlook.com</a>  </td>
-
+    <td>邮箱：<a href="mailto:n-index@outlook.com" target="_blank">n-index@outlook.com</a>  </td>
 </tr>
 
 </tbody>
